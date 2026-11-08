@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CloudCart | Shop Everything</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f7f7ff;color:#20203a}
+header{background:#fff;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;box-shadow:0 3px 20px #0000000c;position:sticky;top:0;z-index:10}
+.logo{font-size:27px;font-weight:800;color:#7048e8}
+.logo span{color:#ff8a3d}
+nav{display:flex;gap:28px}
+nav a{text-decoration:none;color:#444;font-size:14px;font-weight:600}
+nav a:hover{color:#7048e8}
+.cart{background:#7048e8;color:white;padding:11px 20px;border-radius:25px;font-weight:600;border:0;cursor:pointer}
+.hero{margin:35px auto;width:86%;min-height:390px;border-radius:28px;background:linear-gradient(115deg,#5835d5,#9873ff 65%,#ff9a65);display:flex;align-items:center;justify-content:space-between;padding:55px 7%;color:white;overflow:hidden}
+.hero-content{max-width:510px}
+.tag{background:#ffffff30;padding:8px 16px;border-radius:20px;font-size:12px}
+.hero h1{font-size:48px;line-height:1.2;margin:22px 0}
+.hero p{font-size:15px;line-height:1.8;color:#eee}
+.shop-btn{margin-top:25px;padding:14px 28px;background:#fff;color:#633bd6;border:0;border-radius:30px;font-weight:700;cursor:pointer}
+.hero-art{font-size:145px;filter:drop-shadow(0 15px 15px #0003)}
+.section{padding:35px 7%}
+.section-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:25px}
+.section-heading h2{font-size:27px}
+.section-heading span{color:#7048e8;font-weight:600}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.category{background:white;border-radius:20px;padding:25px;text-align:center;box-shadow:0 5px 20px #00000008;transition:.3s}
+.category:hover,.product:hover{transform:translateY(-6px)}
+.category .emoji{font-size:42px}
+.category h3{margin-top:12px;font-size:15px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product{background:white;border-radius:20px;overflow:hidden;box-shadow:0 5px 25px #0000000b;transition:.3s}
+.product img{width:100%;height:205px;object-fit:cover;background:#eee}
+.product-info{padding:18px}
+.product-info h3{font-size:15px}
+.rating{color:#ff9b35;font-size:13px;margin:8px 0}
+.price{font-size:20px;font-weight:800;color:#7048e8}
+.old{font-size:12px;color:#999;text-decoration:line-through;margin-left:8px}
+.add{width:100%;padding:11px;margin-top:13px;border:0;border-radius:10px;background:#7048e8;color:white;font-weight:600;cursor:pointer}
+.add:hover{background:#5030c1}
+.offer{margin:35px 7%;padding:35px 6%;border-radius:22px;background:linear-gradient(110deg,#ff824e,#ffbd68);color:white;display:flex;justify-content:space-between;align-items:center}
+.offer h2{font-size:27px}
+.offer p{margin-top:8px}
+.offer strong{font-size:55px}
+footer{background:#211d3b;color:white;padding:40px 7%;text-align:center;margin-top:40px}
+footer p{color:#c5c1dc;font-size:13px;margin-top:10px}
+@media(max-width:800px){
+nav{display:none}
+.hero{flex-direction:column;text-align:center;gap:20px;padding:35px 7%}
+.hero h1{font-size:35px}
+.hero-art{font-size:90px}
+.categories{grid-template-columns:repeat(2,1fr)}
+.products{grid-template-columns:repeat(2,1fr)}
+.offer strong{font-size:35px}
+}
+@media(max-width:450px){
+.products{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="logo">Cloud<span>Cart.</span></div>
+<nav>
+<a href="#">Home</a>
+<a href="#categories">Categories</a>
+<a href="#products">Products</a>
+<a href="#offers">Offers</a>
+</nav>
+<button class="cart">🛒 Cart (<span id="count">0</span>)</button>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<span class="tag">✨ THE BIGGEST SHOPPING EXPERIENCE</span>
+<h1>Everything You Love, In One Place.</h1>
+<p>Discover amazing products, exclusive deals and exciting collections. Your favourite shopping destination starts here.</p>
+<button class="shop-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Explore Products →</button>
+</div>
+<div class="hero-art">🛍️</div>
+</section>
+
+<section class="section" id="categories">
+<div class="section-heading">
+<h2>Shop by Category</h2>
+<span>Explore all →</span>
+</div>
+<div class="categories">
+<div class="category"><div class="emoji">📱</div><h3>Electronics</h3></div>
+<div class="category"><div class="emoji">👕</div><h3>Fashion</h3></div>
+<div class="category"><div class="emoji">⌚</div><h3>Accessories</h3></div>
+<div class="category"><div class="emoji">🏠</div><h3>Home & Living</h3></div>
+</div>
+</section>
+
+<section class="section" id="products">
+<div class="section-heading">
+<h2>Trending Products 🔥</h2>
+<span>Handpicked for you</span>
+</div>
+<div class="products">
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30b?w=600" alt="Headphones">
+<div class="product-info">
+<h3>Premium Wireless Headphones</h3>
+<div class="rating">★★★★★ (128 reviews)</div>
+<span class="price">₹2,499</span><span class="old">₹3,999</span>
+<button class="add" onclick="addCart()">Add to Cart +</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600" alt="Watch">
+<div class="product-info">
+<h3>Classic Luxury Watch</h3>
+<div class="rating">★★★★★ (96 reviews)</div>
+<span class="price">₹1,899</span><span class="old">₹2,999</span>
+<button class="add" onclick="addCart()">Add to Cart +</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" alt="Shoes">
+<div class="product-info">
+<h3>Sporty Running Sneakers</h3>
+<div class="rating">★★★★★ (210 reviews)</div>
+<span class="price">₹2,199</span><span class="old">₹3,499</span>
+<button class="add" onclick="addCart()">Add to Cart +</button>
+</div>
+</div>
+
+<div class="product">
+<img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600" alt="Camera">
+<div class="product-info">
+<h3>Vintage Digital Camera</h3>
+<div class="rating">★★★★☆ (74 reviews)</div>
+<span class="price">₹4,499</span><span class="old">₹5,999</span>
+<button class="add" onclick="addCart()">Add to Cart +</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="offer" id="offers">
+<div>
+<h2>Special Shopping Festival 🎉</h2>
+<p>Get amazing deals on your favourite products. Limited time offer!</p>
+</div>
+<strong>30% OFF</strong>
+</section>
+
+<footer>
+<h2>CloudCart.</h2>
+<p>Your world of shopping, delivered with happiness.</p>
+<p>© 2026 CloudCart. All Rights Reserved.</p>
+</footer>
+
+<script>
+let count=0;
+function addCart(){
+count++;
+document.getElementById("count").textContent=count;
+}
+</script>
+</body>
+</html>
